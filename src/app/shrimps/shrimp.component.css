@@ -71,6 +71,7 @@
   display: flex;
   align-items: center;
   flex: 1; /* Expand to fill remaining space */
+  margin-right: 5px;
 }
 
 .shrimp a:active {

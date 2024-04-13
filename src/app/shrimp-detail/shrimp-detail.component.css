@@ -22,3 +22,13 @@ label {
     color: #ccc;
     cursor: auto;
   }
+  .imgContainer {
+    display: inline-block;
+  }
+
+  .thumbnail{
+    width: 50%;
+    height:50%;
+    border-radius: 10px;
+  }
+  
