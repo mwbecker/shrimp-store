@@ -4,13 +4,14 @@ import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShrimpService {
-  private shrimpURL = 'http://127.0.0.1:5000/shrimps';  // URL to web api
+  private shrimpURL = `${environment.httpBaseURL}/shrimps`;  // URL to web api
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
