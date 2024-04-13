@@ -1,0 +1,24 @@
+<h2>My Shrimps</h2>
+<div>
+  <label for="new-shrimp">Shrimp name: </label>
+  <input id="new-shrimp" #shrimpName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(shrimpName.value); shrimpName.value=''">
+    Add shrimp
+  </button>
+</div>
+<ul class="shrimps">
+  <li *ngFor="let shrimp of shrimps">
+    <div class = "shrimp" >
+      <a routerLink="/detail/{{shrimp.id}}">
+        <span class="badge">{{shrimp.id}}</span> 
+        <img src="{{baseUrl}}/imgs/{{shrimp.id}}" alt="{{ shrimp.name }}" class="thumbnail">
+
+        {{shrimp.name}}
+      </a>
+      <button type="button" class="delete" title="delete hero"
+        (click)="delete(shrimp)">x</button>
+   </div>
+  </li>
+</ul>

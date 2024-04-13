@@ -1,0 +1,8 @@
+<h2>Top Shrimp</h2>
+<div class="shrimp-menu">
+  <a *ngFor="let shrimp of shrimps"
+    routerLink="/detail/{{shrimp.id}}">
+    {{shrimp.name}}
+  </a>
+</div>
+<app-shrimp-search></app-shrimp-search>
