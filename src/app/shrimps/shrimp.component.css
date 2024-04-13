@@ -38,6 +38,15 @@
   display: flex;
 }
 
+
+.shrimps .shrimp .price {
+  flex: 1;
+  display: flex;
+  margin-left: 7px;
+  color: #0034b8;
+}
+
+
 .shrimps .imgContainer {
   display: inline-block;
 }
