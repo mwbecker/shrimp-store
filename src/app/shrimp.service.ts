@@ -56,7 +56,7 @@ export class ShrimpService {
     );
   }
   deleteShrimp(id: number): Observable<Shrimp> {
-    const url = `${this.searchShrimps}/${id}`;
+    const url = `${this.shrimpURL}/${id}`;
   
     return this.http.delete<Shrimp>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted shrimp id=${id}`)),

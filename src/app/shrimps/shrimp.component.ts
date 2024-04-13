@@ -4,6 +4,7 @@ import { Shrimp } from '../shrimp';
 import { ShrimpService } from '../shrimp.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
 })
 export class ShrimpsComponent implements OnInit {
   shrimps: Shrimp[] = [];
-  baseUrl: string = "http://127.0.0.1:5000";
+  baseUrl: string = environment.httpBaseURL;
 
   constructor(private shrimpService: ShrimpService, private dialog: MatDialog) { }
 

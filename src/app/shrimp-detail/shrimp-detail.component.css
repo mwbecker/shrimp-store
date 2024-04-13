@@ -32,3 +32,6 @@ label {
     border-radius: 10px;
   }
   
+  input #shrimp-price {
+    width: 100px; /* Set the desired width */
+  }
