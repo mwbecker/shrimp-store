@@ -13,9 +13,12 @@
     <div class = "shrimp" >
       <a routerLink="/detail/{{shrimp.id}}">
         <span class="badge">{{shrimp.id}}</span> 
-        <img src="{{baseUrl}}/imgs/{{shrimp.id}}" alt="{{ shrimp.name }}" class="thumbnail">
-
-        {{shrimp.name}}
+        <div class = "imgContainer">
+          <img src="{{baseUrl}}/imgs/{{shrimp.id}}" alt="{{ shrimp.name }}" class="thumbnail">
+        </div>
+        <div class = "name">
+          {{shrimp.name}}
+        </div>
       </a>
       <button type="button" class="delete" title="delete hero"
         (click)="delete(shrimp)">x</button>

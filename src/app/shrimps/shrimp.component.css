@@ -4,24 +4,8 @@
   margin-bottom: 10px; /* Add some bottom margin for spacing */
 }
 
-.shrimp a {
-  flex: 1; /* Expand to fill remaining space */
-  color: #333;
-  text-decoration: none;
-  background-color: #EEE;
-  margin-right: 10px; /* Add spacing between the link and button */
-  padding: 8px 12px; /* Adjust padding to match button padding */
-  border-radius: 4px;
-  position: relative; /* Add relative positioning for absolute button */
-}
-
 .shrimp a:hover {
   background-color: #e6e6e6;
-}
-
-.shrimp a:active {
-  background-color: #525252;
-  color: #fafafa;
 }
 
 .shrimp .delete {
@@ -30,13 +14,9 @@
   font-size: 1.1rem;
   padding: 8px 12px; /* Adjust padding as needed */
   border: none; /* Remove border */
-  cursor:pointer;
+  cursor: pointer;
+  position: relative;
   border-radius: 0 4px 4px 0; /* Adjust border-radius to match link */
-}
-
-.shrimp button:hover {
-  background-color: #525252; 
-  color: white; 
 }
 
 .shrimps .shrimp .badge {
@@ -49,20 +29,62 @@
   height: 1.8em;
   min-width: 16px;
   text-align: right;
-  margin: 0px .8px 10px 0px;
+  margin: 0px .8px 0px 0px;
   border-radius: 4px 0 0 4px;
-  
 }
 
-.shrimps .shrimp .thumbnail {
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
+.shrimps .shrimp .name {
+  flex: 1;
+  display: flex;
+}
+
+.shrimps .imgContainer {
+  display: inline-block;
+}
+
+.shrimp {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  margin-bottom: 10px; /* Add some bottom margin for spacing */
+}
+
+.shrimp .imgContainer {
+  position: relative; /* Set imgContainer as positioning context */
+  width: 50px; /* Set width for imgContainer */
+  height: 50px; /* Set height for imgContainer */
+  margin-right: 10px; /* Add spacing between the image and text */
+  padding: 0px 0px 0px 10px;
+}
+
+.shrimp .thumbnail {
+  width: 100%; /* Set width to fill imgContainer */
+  height: 100%; /* Set height to fill imgContainer */
   border-radius: 4px; /* Optional: Add rounded corners */
-  padding: 15px 10px 0px 5px;
+}
+
+.shrimp a {
+  color: #333;
+  text-decoration: none;
+  background-color: #EEE;
+  padding: 8px 12px; /* Adjust padding as needed */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  flex: 1; /* Expand to fill remaining space */
+}
+
+.shrimp a:active {
+  background-color: #525252;
+  color: #fafafa;
+}
+
+.shrimp .delete:hover {
+  background-color: #525252; 
+  color: white; 
 }
 
 .shrimps {
-  margin: 2em 0 2em 2em;
+  margin: 2em 0 2em 1em;
   list-style-type: none; /* Hide the bullet point */
   padding: 0;
   width: 40%;
