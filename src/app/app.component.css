@@ -19,7 +19,28 @@ nav a:hover {
 nav a:active {
   background-color: black;
 }
-
+nav{
+  flex:1;
+}
 .container{ 
   margin-left: 1em;
+}
+.container .controls
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+button {
+  background-color: #e8e8e8;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+button:hover {
+  color: white;
+  background-color: #42545C;
 }

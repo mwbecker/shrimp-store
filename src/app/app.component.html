@@ -1,10 +1,12 @@
 <div class = "container">
     <h1>{{title}}</h1>
-    <nav>
-        <a routerLink="/dashboard">Dashboard</a>
-        <a routerLink="/shrimps">Shrimps</a>
-    </nav>
-    <button (click)="logout()"> Logout </button>
+    <div class = "controls">
+        <nav>
+            <a routerLink="/dashboard">Dashboard</a>
+            <a routerLink="/shrimps">Shrimps</a>
+        </nav>
+        <button (click)="logout()"> Logout </button>
+    </div>
     <router-outlet></router-outlet>
     <app-messages></app-messages>
 </div>
