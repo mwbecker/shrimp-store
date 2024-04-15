@@ -5,6 +5,7 @@ import {Shrimp} from '../shrimp';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ShrimpService } from '../shrimp.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   standalone:true,
@@ -15,7 +16,7 @@ import { ShrimpService } from '../shrimp.service';
 })
 export class ShrimpDetailComponent {
     @Input() shrimp?: Shrimp;
-    baseUrl: string = "http://127.0.0.1:5000";
+    baseUrl: string = environment.httpBaseURL ;
 
     constructor(
       private route: ActivatedRoute,

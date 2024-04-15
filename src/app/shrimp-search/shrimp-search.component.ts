@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 import {
    debounceTime, distinctUntilChanged, switchMap
@@ -16,6 +17,7 @@ import { ShrimpService } from '../shrimp.service';
 })
 export class ShrimpSearchComponent implements OnInit {
   shrimps$!: Observable<Shrimp[]>;
+  baseUrl: string = environment.httpBaseURL;
   private searchTerms = new Subject<string>();
 
   constructor(private shrimpService: ShrimpService) {}
