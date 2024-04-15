@@ -18767,7 +18767,7 @@ var DebugNode = class {
    *
    * When an element is repeated within *ngFor, the context is an `NgForOf` whose `$implicit`
    * property is the value of the row instance value. For example, the `hero` in `*ngFor="let hero
-   * of shrimps"`.
+   * of heroes"`.
    */
   get context() {
     return getComponent$1(this.nativeNode) || getContext(this.nativeNode);

@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {Shrimp} from '../shrimp';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { ShrimpService } from '../shrimp.service';
+import { ShrimpService } from '../services/shrimp.service';
 import { environment } from '../../environments/environment';
 
 @Component({

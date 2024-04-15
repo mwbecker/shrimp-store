@@ -79,11 +79,11 @@ import {
   ɵɵqueryRefresh,
   ɵɵsanitizeUrlOrResourceUrl
 } from "./chunk-D7M57XQX.js";
-import "./chunk-UKEHM6V6.js";
 import {
   defer,
   isObservable
 } from "./chunk-V2DXGMIT.js";
+import "./chunk-UKEHM6V6.js";
 import {
   BehaviorSubject,
   ConnectableObservable,
@@ -2011,7 +2011,7 @@ function validateNode(route, fullPath, requireStandaloneComponents) {
       const routes: Routes = [
         { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
         { path: 'dashboard',  component: DashboardComponent },, << two commas
-        { path: 'detail/:id', component: ShrimpDetailComponent }
+        { path: 'detail/:id', component: HeroDetailComponent }
       ];
     `);
     }

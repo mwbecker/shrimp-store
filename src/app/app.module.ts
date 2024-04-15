@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -9,11 +9,20 @@ import { ShrimpsComponent } from './shrimps/shrimp.component';
 import { MessagesComponent } from './messages/messages.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ShrimpSearchComponent } from './shrimp-search/shrimp-search.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { SecretComponent } from './secret/secret.component';
+import { TokenInterceptor } from './helpers/token.interceptor';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 @NgModule({
   imports: [
@@ -22,7 +31,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AppRoutingModule,
     ShrimpDetailComponent,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatInputModule
   ],
   declarations: [
     AppComponent,
@@ -30,11 +46,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     MessagesComponent,
     ShrimpsComponent,
     ShrimpSearchComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    SecretComponent,
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Shrimp } from '../shrimp';
-import { ShrimpService } from '../shrimp.service';
+import { ShrimpService } from '../services/shrimp.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { environment } from '../../environments/environment';

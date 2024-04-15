@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Shrimp } from '../shrimp';
-import { ShrimpService } from '../shrimp.service';
+import { ShrimpService } from '../services/shrimp.service';
 
 @Component({
   selector: 'app-dashboard',
