@@ -16,5 +16,8 @@ export class AppComponent {
     this.authenticationService.logout();
     console.log("Loggged out!")
   }
+  isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
+  }
 
 }
