@@ -1,31 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthenticationService } from '../services/authentication.service';
-import { MessageService } from '../message.service';
+import { CommonModule } from '@angular/common';
+import { SocialAuthService, GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-login-page',
+  standalone:true,
+  imports:[
+    CommonModule,
+    GoogleSigninButtonModule
+  ],
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css'],
+  styleUrl: './login-page.component.css'
 })
-export class LoginPageComponent implements OnInit {
-  public loginForm!: FormGroup;
+export class LoginPageComponent implements OnInit{
+  constructor( private authService:SocialAuthService) {}
 
-  constructor(private authenticationService: AuthenticationService, 
-              private messageService: MessageService
-  ) {}
-
-  ngOnInit() {
-    this.loginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+  ngOnInit(): void {
+    this.authService.authState.subscribe((user) => {
+      console.log(user)
+      //perform further logics
     });
-  }
-
-  public onSubmit() {
-    this.authenticationService.login(
-      this.loginForm.get('username')!.value,
-      this.loginForm!.get('password')!.value
-    );
   }
 }

@@ -1,6 +1,7 @@
 import {
   DomSanitizer
 } from "./chunk-22NIKV52.js";
+import "./chunk-QSW3BHKO.js";
 import {
   BREAKPOINT,
   BREAKPOINTS,
@@ -59,7 +60,6 @@ import {
   sortDescendingPriority,
   validateBasis
 } from "./chunk-OSK5QNKK.js";
-import "./chunk-QSW3BHKO.js";
 import {
   coerceBooleanProperty
 } from "./chunk-IGM4KR7L.js";

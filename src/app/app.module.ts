@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -23,6 +24,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+} from '@abacritt/angularx-social-login';
 
 @NgModule({
   imports: [
@@ -38,7 +43,8 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     MatButtonModule,
     MatFormFieldModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    LoginPageComponent
   ],
   declarations: [
     AppComponent,
@@ -48,13 +54,29 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     ShrimpSearchComponent,
     ConfirmationDialogComponent,
     SecretComponent,
-    LoginPageComponent,
     RegisterPageComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [
     provideAnimationsAsync(),
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              environment.googleApiClientId
+            )
+          }
+        ],
+        onError: (error) => {
+          console.error(error);
+        }
+      } as SocialAuthServiceConfig
+    }
   ]
 })
 export class AppModule { }
