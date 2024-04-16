@@ -49,8 +49,8 @@ export class ShrimpService {
     );
   }
 
-  addShrimp(shrimp: Shrimp): Observable<Shrimp> {
-    return this.http.post<Shrimp>(this.shrimpURL, shrimp, this.httpOptions).pipe(
+  addShrimp(shrimp: FormData): Observable<Shrimp> {
+    return this.http.post<Shrimp>(this.shrimpURL, shrimp).pipe(
       tap((newShrimp: Shrimp) => this.log(`added shrimp w/ id=${newShrimp.id}`)),
       catchError(this.handleError<Shrimp>('addShrimp'))
     );

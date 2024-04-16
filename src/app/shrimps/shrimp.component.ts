@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Shrimp } from '../shrimp';
+import { Shrimp, ShrimpWithFile } from '../shrimp';
 import { ShrimpService } from '../services/shrimp.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
@@ -21,16 +21,23 @@ export class ShrimpsComponent implements OnInit {
   ngOnInit(): void {
     this.getShrimps();
   }
-
+  
   getShrimps(): void {
     this.shrimpService.getShrimps()
     .subscribe(shrimps => this.shrimps = shrimps);
   }
 
-  add(name: string): void {
-    name = name.trim();
+  onSubmit(name: string, imgFileInput: HTMLInputElement): void {
+    const imgFile = imgFileInput.files ? imgFileInput.files[0] : null;
+    if (!imgFile) {
+      console.error('No file selected.');
+      return;
+    }
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('file', imgFile);
     if (!name) { return; }
-    this.shrimpService.addShrimp({ name } as Shrimp)
+    this.shrimpService.addShrimp(formData)
       .subscribe(shrimp => {
         this.shrimps.push(shrimp);
       });

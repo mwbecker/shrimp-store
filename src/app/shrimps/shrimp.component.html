@@ -1,12 +1,16 @@
 <h2>My Shrimps</h2>
 <div>
-  <label for="new-shrimp">Shrimp name: </label>
-  <input id="new-shrimp" #shrimpName />
+  <form (submit)="onSubmit(shrimpName.value, imgFile)" enctype="multipart/form-data">
+    <label for="new-shrimp">Shrimp name: </label>
+    <input id="new-shrimp" #shrimpName />
 
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button" (click)="add(shrimpName.value); shrimpName.value=''">
-    Add shrimp
-  </button>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <!-- File input for uploading -->
+    <input type="file" #imgFile/>
+
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="submit" class="add-button"> Add shrimp </button>
+  </form>
 </div>
 <ul class="shrimps">
   <li *ngFor="let shrimp of shrimps">
