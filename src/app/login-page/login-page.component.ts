@@ -23,7 +23,6 @@ export class LoginPageComponent implements OnInit{
       //perform further logics
       localStorage.setItem(environment.tokenKey, user.idToken);
       this.router.navigate(['/']);
-
     });
   }
 }
