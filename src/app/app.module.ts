@@ -28,6 +28,7 @@ import { SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import {
   GoogleLoginProvider,
 } from '@abacritt/angularx-social-login';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import {
     ShrimpSearchComponent,
     ConfirmationDialogComponent,
     SecretComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    UserComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [

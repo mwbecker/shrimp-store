@@ -1,8 +1,6 @@
-.authentication-card {
-    width: 30%;
-    margin: 0 auto;
-}
-
-.authentication-card-container {
-    min-height: 100vh;
+.container{
+    margin: 4em 0em 0em 4em;
+    align-content: center;
+    display: 1;
+    display: flex;
 }

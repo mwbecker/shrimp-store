@@ -1,0 +1,4 @@
+<div class = "username" *ngIf="this.UserService.getUser()">
+    
+    <a> Hello {{this.UserService.getUser()?.given_name}} ! </a>
+</div>

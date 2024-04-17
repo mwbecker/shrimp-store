@@ -6,6 +6,9 @@
             <a routerLink="/shrimps">Shrimps</a>
         </nav>
         <ng-container *ngIf="isLoggedIn()">
+            <div>
+                <app-user></app-user>
+            </div>
             <button (click)="logout()"> Logout </button>
         </ng-container>
     </div>

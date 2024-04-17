@@ -2,7 +2,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
-import { MessageService } from '../message.service';
+import { MessageService } from '../services/message.service';
 
 @Injectable({
   providedIn: 'root',
