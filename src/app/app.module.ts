@@ -23,7 +23,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { RegisterPageComponent } from './register-page/register-page.component';
 import { SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import {
   GoogleLoginProvider,
@@ -55,7 +54,6 @@ import { UserComponent } from './user/user.component';
     ShrimpSearchComponent,
     ConfirmationDialogComponent,
     SecretComponent,
-    RegisterPageComponent,
     UserComponent
   ],
   bootstrap: [ AppComponent ],

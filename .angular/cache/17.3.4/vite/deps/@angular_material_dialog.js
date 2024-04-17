@@ -23,17 +23,15 @@ import {
   getRtlScrollAxisType,
   hasModifierKey,
   supportsScrollBehavior
-} from "./chunk-SR4GI2AS.js";
+} from "./chunk-Q4SIVYWD.js";
 import {
+  BidiModule,
+  Directionality,
   coerceArray,
   coerceCssPixelValue,
   coerceElement,
   coerceNumberProperty
-} from "./chunk-FKRR3JSK.js";
-import {
-  BidiModule,
-  Directionality
-} from "./chunk-THIFRPKL.js";
+} from "./chunk-XNGR46FA.js";
 import {
   DOCUMENT,
   Location
@@ -97,7 +95,6 @@ import {
   ɵɵtemplate,
   ɵɵviewQuery
 } from "./chunk-SISTMAML.js";
-import "./chunk-SAVXX6OM.js";
 import {
   animationFrameScheduler,
   asapScheduler,
@@ -106,6 +103,7 @@ import {
   isObservable,
   merge
 } from "./chunk-SG3BCSKH.js";
+import "./chunk-SAVXX6OM.js";
 import {
   ConnectableObservable,
   Observable,

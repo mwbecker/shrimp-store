@@ -1,11 +1,9 @@
 import {
+  BidiModule,
   coerceArray,
   coerceElement,
   coerceNumberProperty
-} from "./chunk-FKRR3JSK.js";
-import {
-  BidiModule
-} from "./chunk-THIFRPKL.js";
+} from "./chunk-XNGR46FA.js";
 import {
   DOCUMENT,
   isPlatformBrowser
@@ -4433,4 +4431,4 @@ export {
   MatRippleModule,
   MatRippleLoader
 };
-//# sourceMappingURL=chunk-SR4GI2AS.js.map
+//# sourceMappingURL=chunk-Q4SIVYWD.js.map

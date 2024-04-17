@@ -3,6 +3,7 @@ import {
 } from "./chunk-PAO47BMR.js";
 import {
   Directive,
+  ElementRef,
   EventEmitter,
   Inject,
   Injectable,
@@ -21,6 +22,29 @@ import {
   ɵɵdefineNgModule,
   ɵɵinject
 } from "./chunk-SISTMAML.js";
+
+// node_modules/@angular/cdk/fesm2022/coercion.mjs
+function coerceBooleanProperty(value) {
+  return value != null && `${value}` !== "false";
+}
+function coerceNumberProperty(value, fallbackValue = 0) {
+  return _isNumberValue(value) ? Number(value) : fallbackValue;
+}
+function _isNumberValue(value) {
+  return !isNaN(parseFloat(value)) && !isNaN(Number(value));
+}
+function coerceArray(value) {
+  return Array.isArray(value) ? value : [value];
+}
+function coerceCssPixelValue(value) {
+  if (value == null) {
+    return "";
+  }
+  return typeof value === "string" ? value : `${value}px`;
+}
+function coerceElement(elementOrRef) {
+  return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
+}
 
 // node_modules/@angular/cdk/fesm2022/bidi.mjs
 var DIR_DOCUMENT = new InjectionToken("cdk-dir-doc", {
@@ -181,7 +205,12 @@ var BidiModule = _BidiModule;
 })();
 
 export {
+  coerceBooleanProperty,
+  coerceNumberProperty,
+  coerceArray,
+  coerceCssPixelValue,
+  coerceElement,
   Directionality,
   BidiModule
 };
-//# sourceMappingURL=chunk-THIFRPKL.js.map
+//# sourceMappingURL=chunk-XNGR46FA.js.map
