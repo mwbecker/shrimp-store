@@ -11,19 +11,19 @@
     padding: 20px;
   }
 
-  .shrimp a {
+  .badge a {
     color: #333;
     text-decoration: none;
   }
 
-  .shrimp a:hover{
+  .badge a:hover{
     text-decoration: underline;
   }
 
   .price {
     text-decoration: underline;
-    text-align: center;
     margin-top: 10px;
+    padding: 2px 2px;
   }
 
   .imgContainer {
@@ -40,4 +40,47 @@
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
+  }
+
+  .addToCart {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .quantity {
+    display: flex;
+    margin-left: 10px;
+  }
+  
+  .quantity-input {
+    width: 40px;
+    text-align: center;
+  }
+  
+  .quantity button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  .quantity button:hover {
+    background-color: #f0f0f0;
+  }
+
+  .addToCartBtn button {
+    margin-top: 10px;
+    background-color: #eee;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  .addToCartBtn button:hover {
+    background-color: #cfd8dc;
+  }
+  .addToCartBtn button:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
   }

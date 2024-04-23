@@ -1,15 +1,23 @@
 <div class="shrimps">
     <div *ngFor="let shrimp of shrimps">
       <div class = "shrimp" >
-        <a routerLink="/detail/{{shrimp.id}}">
-          <a class="badge">{{shrimp.name}}</a> 
-          <div class = "imgContainer">
+         <div class="badge">
+            <a routerLink="/detail/{{shrimp.id}}"> {{shrimp.name}} </a>
+         </div>
+         <div class = "imgContainer">
             <img src="{{baseUrl}}/imgs/{{shrimp.id}}" alt="{{ shrimp.name }}" class="thumbnail">
           </div>
           <div class = "price">
             <a> ${{shrimp.price}} USD </a>
           </div>
-        </a>
+          <div class = "addToCart">
+            <button class = "addToCartBtn"> Add to cart </button>
+            <div class="quantity">
+                <button class="decrement"> - </button>
+                <input type="text" class="quantity-input" value="1">
+                <button class="increment"> + </button>
+            </div>
+          </div>
      </div>
     </div>
 </div>
