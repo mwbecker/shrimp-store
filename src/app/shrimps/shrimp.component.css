@@ -46,11 +46,6 @@
   color: #0034b8;
 }
 
-
-.shrimps .imgContainer {
-  display: inline-block;
-}
-
 .shrimp {
   display: flex;
   align-items: center; /* Align items vertically */

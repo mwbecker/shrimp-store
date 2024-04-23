@@ -4,7 +4,3 @@ export interface Shrimp {
     imageUrl: string;
     price:string;
   }
-
-export interface ShrimpWithFile extends Shrimp{
-   file:File;
-}

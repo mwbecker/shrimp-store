@@ -15,7 +15,6 @@ import { ShrimpSearchComponent } from './shrimp-search/shrimp-search.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { SecretComponent } from './secret/secret.component';
 import { TokenInterceptor } from './helpers/token.interceptor';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,6 +27,7 @@ import {
   GoogleLoginProvider,
 } from '@abacritt/angularx-social-login';
 import { UserComponent } from './user/user.component';
+import { StorefrontComponent } from './storefront/storefront.component';
 
 @NgModule({
   imports: [
@@ -53,8 +53,8 @@ import { UserComponent } from './user/user.component';
     ShrimpsComponent,
     ShrimpSearchComponent,
     ConfirmationDialogComponent,
-    SecretComponent,
-    UserComponent
+    UserComponent,
+    StorefrontComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [

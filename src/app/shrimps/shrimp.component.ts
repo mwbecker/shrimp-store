@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Shrimp, ShrimpWithFile } from '../shrimp';
+import { Shrimp } from '../shrimp';
 import { ShrimpService } from '../services/shrimp.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';

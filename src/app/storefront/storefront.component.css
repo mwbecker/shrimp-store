@@ -1,0 +1,43 @@
+.shrimps {
+    margin: 10px 10px 0px 0px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .shrimp {
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+
+  .shrimp a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  .shrimp a:hover{
+    text-decoration: underline;
+  }
+
+  .price {
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .imgContainer {
+    text-align: center;
+  }
+  
+  .thumbnail {
+    border-radius: 0.5rem;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .badge {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
