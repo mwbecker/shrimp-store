@@ -3,7 +3,7 @@
     <div class = "controls">
         <nav>
             <a routerLink="/dashboard">Dashboard</a>
-            <a routerLink="/shrimps">Shrimps</a>
+            <a *ngIf="isLoggedIn()" routerLink="/shrimps">Shrimps</a>
             <a routerLink="/storefront">Storefront</a>
 
         </nav>

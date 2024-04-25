@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
-import { UserService } from '../services/user.service';
-
+import { AuthenticationService } from '../services/authentication.service';
+import { CustomJwtPayload } from '../customJwtPayload';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  constructor(public UserService: UserService) {}
-
+  constructor(public AuthenticationService: AuthenticationService) {}
+  
+  getUser() : CustomJwtPayload | null 
+  {
+    return this.AuthenticationService.decodeToken();
+  }
 }

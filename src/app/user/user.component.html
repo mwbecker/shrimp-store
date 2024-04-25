@@ -1,4 +1,4 @@
-<div class = "profile-info" *ngIf="this.UserService.getUser()">
-    <img src="{{this.UserService.getUser()?.picture}}" referrerpolicy="no-referrer" class="profile">
-    <a class = "greeting"> Hello {{this.UserService.getUser()?.given_name}} ! </a>
+<div class = "profile-info" *ngIf="getUser()">
+    <img src="{{getUser()?.picture}}" referrerpolicy="no-referrer" class="profile">
+    <a class = "greeting"> Hello {{getUser()?.given_name}} ! </a>
 </div>
