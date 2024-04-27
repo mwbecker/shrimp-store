@@ -13,6 +13,9 @@
             </div>
             <button (click)="logout()"> Logout </button>
         </ng-container>
+        <ng-container *ngIf="!isLoggedIn()">
+            <button routerLink="/login"> Login </button>
+        </ng-container>
     </div>
     
     <router-outlet></router-outlet>

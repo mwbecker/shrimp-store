@@ -3,33 +3,64 @@ import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import {CustomJwtPayload} from '../customJwtPayload';
 import { jwtDecode }from 'jwt-decode';
+import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+import { MessageService } from './message.service';
+import { Observable, of } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
+  baseUrl:string = environment.httpBaseURL
+  private http: HttpClient;
+  
 
   constructor(
-    private router: Router
-  ) {}
+    private router: Router,
+    private messageService:MessageService,
+    httpBackend: HttpBackend,
+  ) {
+    this.http = new HttpClient(httpBackend);
+    this.validateLogin();
+    this.checkLoginExpired();
+  }
 
-  private checkTokenValidity() {
+   /** Log a ShrimpService message with the MessageService */
+   private log(message: string) {
+    this.messageService.add(`ShrimpService: ${message}`);
+  }
+  
+  private handleValidationError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error); // log to console instead
+      this.log(`${operation} failed: ${error.message}`);
+      this.logout();
+      return of(result as T);
+    };
+  }
+  
+  private checkLoginExpired(frequency: number = 75000) {
     setInterval(() => {
-      const token = localStorage.getItem(environment.tokenKey);
-      if (!token) {
-        // Token not found, navigate to login page
-        this.router.navigate(['/login']);
-        return;
-      }
+      this.validateLogin();
+    }, frequency);
+  }
 
-      // Perform token validation here
-      const isValid = this.isTokenValid(token);
-      if (!isValid) {
-        // Token is invalid, clear from local storage and navigate to login page
-        localStorage.removeItem(environment.tokenKey);
-        this.router.navigate(['/login']);
-      }
-    }, 300000); // Check every 5 minutes (300,000 milliseconds)
+  private validateLogin() : void{
+    let token = localStorage.getItem(environment.tokenKey);
+    var httpOptions = {
+      headers: new HttpHeaders({ 'Authorization': `Bearer ${token}`})
+    };
+    this.http.get<any>(`${this.baseUrl}/validateUserLogin`, httpOptions)
+    .pipe(
+      tap(_ => this.log('Validate Login')),
+      catchError(this.handleValidationError<any>('validateLogin'))
+    )
+    .subscribe(resp =>{
+       console.log(resp);
+    }   
+    )
   }
 
   public decodeToken() : CustomJwtPayload | null {
@@ -37,6 +68,7 @@ export class AuthenticationService {
     if (token){
       try {
           const decodedToken = jwtDecode(token) as CustomJwtPayload;
+          console.log(decodedToken);
           return decodedToken;
       } catch (error) {
           console.error('Error decoding token:', error);
@@ -49,9 +81,9 @@ export class AuthenticationService {
     }
   }
 
-  private isTokenValid(token: string): boolean {
-    
-    return true; // Placeholder
+  public isLoggedIn(): boolean {
+    let token = localStorage.getItem(environment.tokenKey);
+    return token != null && token.length > 0;
   }
 
   public logout() {
@@ -59,12 +91,7 @@ export class AuthenticationService {
     this.router.navigate(['/login']);
   }
 
-  public isLoggedIn(): boolean {
-    let token = localStorage.getItem(environment.tokenKey);
-    return token != null && token.length > 0;
-  }
-
-  public getToken(): string | null {
-    return this.isLoggedIn() ? localStorage.getItem(environment.tokenKey) : null;
+  public getToken(): string {
+    return localStorage.getItem(environment.tokenKey) ?? "";
   }
 }
