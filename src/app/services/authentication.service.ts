@@ -15,7 +15,6 @@ import { Observable, of } from 'rxjs';
 export class AuthenticationService {
   baseUrl:string = environment.httpBaseURL
   private http: HttpClient;
-  
 
   constructor(
     private router: Router,
@@ -28,7 +27,7 @@ export class AuthenticationService {
   }
 
    /** Log a ShrimpService message with the MessageService */
-   private log(message: string) {
+  private log(message: string) {
     this.messageService.add(`ShrimpService: ${message}`);
   }
   
@@ -48,7 +47,7 @@ export class AuthenticationService {
   }
 
   private validateLogin() : void{
-    let token = localStorage.getItem(environment.tokenKey);
+    let token = sessionStorage.getItem(environment.tokenKey);
     var httpOptions = {
       headers: new HttpHeaders({ 'Authorization': `Bearer ${token}`})
     };
@@ -64,11 +63,10 @@ export class AuthenticationService {
   }
 
   public decodeToken() : CustomJwtPayload | null {
-    let token = localStorage.getItem(environment.tokenKey);
+    let token = sessionStorage.getItem(environment.tokenKey);
     if (token){
       try {
           const decodedToken = jwtDecode(token) as CustomJwtPayload;
-          console.log(decodedToken);
           return decodedToken;
       } catch (error) {
           console.error('Error decoding token:', error);
@@ -82,16 +80,20 @@ export class AuthenticationService {
   }
 
   public isLoggedIn(): boolean {
-    let token = localStorage.getItem(environment.tokenKey);
+    let token = sessionStorage.getItem(environment.tokenKey);
     return token != null && token.length > 0;
+  }
+  public login(idToken:string):void{
+    sessionStorage.setItem(environment.tokenKey, idToken);
+    this.router.navigate(['/']);
   }
 
   public logout() {
-    localStorage.removeItem(environment.tokenKey);
+    sessionStorage.removeItem(environment.tokenKey);
     this.router.navigate(['/login']);
   }
 
   public getToken(): string {
-    return localStorage.getItem(environment.tokenKey) ?? "";
+    return sessionStorage.getItem(environment.tokenKey) ?? "";
   }
 }

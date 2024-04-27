@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {AuthenticationService} from "../services/authentication.service"
 import { SocialAuthService, GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
@@ -15,14 +16,14 @@ import { environment } from '../../environments/environment';
   styleUrl: './login-page.component.css'
 })
 export class LoginPageComponent implements OnInit{
-  constructor( private authService:SocialAuthService,
+  constructor( private socialAuthService:SocialAuthService,
+               private authService:AuthenticationService,
                private router:Router) {}
 
   ngOnInit(): void {
-    this.authService.authState.subscribe((user) => {
+    this.socialAuthService.authState.subscribe((user) => {
       //perform further logics
-      localStorage.setItem(environment.tokenKey, user.idToken);
-      this.router.navigate(['/']);
+      this.authService.login(user.idToken);
     });
   }
 }

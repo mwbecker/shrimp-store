@@ -1,23 +1,23 @@
-<div class = "container">
-    <h1>{{title}}</h1>
-    <div class = "controls">
-        <nav>
-            <a routerLink="/dashboard">Dashboard</a>
-            <a *ngIf="isLoggedIn()" routerLink="/shrimps">Shrimps</a>
-            <a routerLink="/storefront">Storefront</a>
-
-        </nav>
-        <ng-container *ngIf="isLoggedIn()">
-            <div>
-                <app-user></app-user>
-            </div>
-            <button (click)="logout()"> Logout </button>
-        </ng-container>
-        <ng-container *ngIf="!isLoggedIn()">
-            <button routerLink="/login"> Login </button>
-        </ng-container>
+<div class="container">
+    <h1>{{ title }}</h1>
+    <div class="controls">
+      <nav>
+        <a routerLink="/dashboard">Dashboard</a>
+        <a routerLink="/shrimps">Shrimps</a>
+        <a routerLink="/storefront">Storefront</a>
+      </nav>
+      <ng-container>
+        <div>
+          <app-user></app-user>
+        </div>
+        <button (click)="logout()">Logout</button>
+      </ng-container>
+      <ng-template #loginButton>
+        <button routerLink="/login">Login</button>
+      </ng-template>
     </div>
-    
+  
     <router-outlet></router-outlet>
     <app-messages></app-messages>
-</div>
+  </div>
+  
