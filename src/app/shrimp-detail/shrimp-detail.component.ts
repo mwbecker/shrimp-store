@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ShrimpService } from '../services/shrimp.service';
 import { environment } from '../../environments/environment';
+import {AuthenticationService} from '../services/authentication.service'
 
 @Component({
   standalone:true,
@@ -20,6 +21,7 @@ export class ShrimpDetailComponent {
 
     constructor(
       private route: ActivatedRoute,
+      private authenticationService: AuthenticationService,
       private shrimpService: ShrimpService,
       private location: Location
     ) {}
@@ -28,6 +30,10 @@ export class ShrimpDetailComponent {
       this.getShrimp();
     }
     
+    isReadOnly():boolean {
+      return !this.authenticationService.isLoggedIn();
+    }
+
     getShrimp(): void {
       const id = Number(this.route.snapshot.paramMap.get('id'));
       this.shrimpService.getShrimp(id)

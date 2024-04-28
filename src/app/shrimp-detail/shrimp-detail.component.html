@@ -5,12 +5,12 @@
     </div>
     <div>
       <label for="shrimp-name">Shrimp name: </label>
-      <input id="shrimp-name" [(ngModel)]="shrimp.name" placeholder="name">
+      <input id="shrimp-name" [(ngModel)]="shrimp.name" placeholder="name" [readOnly]="isReadOnly()">
     </div>
     <br>
     <div>
       <label for="shrimp-price">Shrimp price: </label>
-      $<input id="shrimp-price" [(ngModel)]="shrimp.price" placeholder="price" size = 5> USD
+      $<input id="shrimp-price" [(ngModel)]="shrimp.price" placeholder="price" size = 5 [readOnly]="isReadOnly()"> USD
     </div>
   </div>
 
