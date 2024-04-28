@@ -7,7 +7,7 @@ import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { Observable, of } from 'rxjs';
-
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +19,7 @@ export class AuthenticationService {
   constructor(
     private router: Router,
     private messageService:MessageService,
+    private storageService: StorageService,
     httpBackend: HttpBackend,
   ) {
     this.http = new HttpClient(httpBackend);
@@ -47,7 +48,7 @@ export class AuthenticationService {
   }
 
   private validateLogin() : void{
-    let token = sessionStorage.getItem(environment.tokenKey);
+    let token = this.storageService.getItem(environment.tokenKey);
     var httpOptions = {
       headers: new HttpHeaders({ 'Authorization': `Bearer ${token}`})
     };
@@ -63,7 +64,7 @@ export class AuthenticationService {
   }
 
   public decodeToken() : CustomJwtPayload | null {
-    let token = sessionStorage.getItem(environment.tokenKey);
+    let token = this.storageService.getItem(environment.tokenKey);
     if (token){
       try {
           const decodedToken = jwtDecode(token) as CustomJwtPayload;
@@ -80,20 +81,20 @@ export class AuthenticationService {
   }
 
   public isLoggedIn(): boolean {
-    let token = sessionStorage.getItem(environment.tokenKey);
+    let token = this.storageService.getItem(environment.tokenKey);
     return token != null && token.length > 0;
   }
   public login(idToken:string):void{
-    sessionStorage.setItem(environment.tokenKey, idToken);
+    this.storageService.setItem(environment.tokenKey, idToken);
     this.router.navigate(['/']);
   }
 
   public logout() {
-    sessionStorage.removeItem(environment.tokenKey);
+    this.storageService.removeItem(environment.tokenKey);
     this.router.navigate(['/login']);
   }
 
   public getToken(): string {
-    return sessionStorage.getItem(environment.tokenKey) ?? "";
+    return this.storageService.getItem(environment.tokenKey) ?? "";
   }
 }

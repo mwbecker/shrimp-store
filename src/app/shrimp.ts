@@ -4,3 +4,8 @@ export interface Shrimp {
     imageUrl: string;
     price:string;
   }
+
+  export interface ShrimpCart extends Shrimp{
+    quantity: number,
+    isAdded: boolean
+  }

@@ -11,11 +11,11 @@
         <a>${{shrimp.price}} USD</a>
       </div>
       <div class="addToCart">
-        <button class="addToCartBtn" (click)="addToCart(shrimp)">Add to cart</button>
+        <button class="addToCartBtn" (click)="this.cartService.addToCart(shrimp.id)">Add to cart</button>
         <div class="quantity">
-          <button class="decrement" (click)="decrementQuantity(shrimp.id)">-</button>
-          <input type="text" class="quantity-input" [value]="getQuantity(shrimp.id)" readonly>
-          <button class="increment" (click)="incrementQuantity(shrimp.id)">+</button>
+          <button class="decrement" (click)="this.cartService.decrementQuantity(shrimp.id)">-</button>
+          <input type="text" class="quantity-input" [value]="this.cartService.getQuantity(shrimp.id)" readonly>
+          <button class="increment" (click)="this.cartService.incrementQuantity(shrimp.id)">+</button>
         </div>
       </div>
     </div>
