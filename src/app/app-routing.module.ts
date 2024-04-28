@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ShrimpsComponent } from './shrimps/shrimp.component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { ShrimpDetailComponent } from './shrimp-detail/shrimp-detail.component';
+import {LogoutComponent} from './logout/logout.component'
 import { AuthGuard } from './helpers/auth.guard';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'shrimps', component: ShrimpsComponent, canActivate: [AuthGuard]},
   { path: 'storefront', component: StorefrontComponent},
   { path: 'login', component: LoginPageComponent },
+  { path: 'logout', component: LogoutComponent },
 ];
 
 @NgModule({

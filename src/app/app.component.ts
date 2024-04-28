@@ -12,9 +12,8 @@ export class AppComponent {
     private authenticationService: AuthenticationService,
   ) {}
    
-  logout(): void {
-    this.authenticationService.logout();
-    console.log("Loggged out!")
+  logout() {
+    window.location.href = '/logout'; 
   }
   isLoggedIn(): boolean {
     return this.authenticationService.isLoggedIn();
